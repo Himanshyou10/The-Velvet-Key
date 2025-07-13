@@ -1,0 +1,8 @@
+
+<svg width="400" height="150" viewBox="0 0 400 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="150" fill="none"/>
+  <g fill="white">
+    <!-- Traditional key shape -->
+    <path d="M60 75a15 15 0 1 0-5 11l20 20 4-4-5-5 2-2 5 5 4-4-5-5 2-2 10 10 4-4-20-20A15 15 0 0 0 60 75Zm-10 0a10 10 0 1 1 20 0 10 10 0 0 1-20 0Z"/>
+  </g>
+</svg>
