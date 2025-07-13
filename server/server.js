@@ -17,16 +17,17 @@ connectCloudinary();
 const app = express();
 app.use(cors()); // Enable Cross-Origin Resource Sharing
 
-// API to listen to Stripe Webhooks
-app.post("/api/stripe",express.raw({ type: "application/json" }),stripeWebhooks);
+// 🟡 Clerk Webhook - must come BEFORE express.json
+app.post("/api/clerk", express.raw({ type: "application/json" }), clerkWebhooks);
 
-// Middleware to parse JSON
+// Stripe Webhook
+app.post("/api/stripe", express.raw({ type: "application/json" }), stripeWebhooks);
+
+// JSON parsing for all other routes
 app.use(express.json());
 app.use(clerkMiddleware());
 
-// API to listen to Clerk Webhooks
-app.use("/api/clerk", clerkWebhooks);
-
+// Routes
 app.get("/", (req, res) => res.send("API is working"));
 app.use("/api/user", userRouter);
 app.use("/api/hotels", hotelRouter);
